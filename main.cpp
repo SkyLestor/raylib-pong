@@ -16,7 +16,9 @@ Color ballColor{255, 255, 255, 255};
 
 int main () {
 
-    Player player1 = Player(Player::POS_X_DEFAULT, (SCREEN_HEIGHT - Player::HEIGHT_DEFAULT) / 2);
+    Player playerLeft = Player(Player::POS_X_DEFAULT, (SCREEN_HEIGHT - Player::HEIGHT_DEFAULT) / 2);
+    Player playerRight = Player((SCREEN_WIDTH - Player::POS_X_DEFAULT - Player::WIDTH_DEFAULT), (SCREEN_HEIGHT - Player::HEIGHT_DEFAULT) / 2);
+    
 
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, GAME_TITLE);
 
@@ -27,7 +29,8 @@ int main () {
         
         DrawCircle(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, ballRadius, ballColor);
         
-        player1.Draw();
+        playerLeft.Draw();
+        playerRight.Draw();
 
         EndDrawing();
     }
