@@ -2,8 +2,9 @@
 #define PLAYER_H
 
 #include <raylib.h>
+#include "GameObject.h"
 
-class Player {
+class Player : public GameObject {
 public:
     static constexpr int POS_X_DEFAULT = 10;
     static constexpr int POS_Y_DEFAULT = 0;
@@ -16,14 +17,11 @@ public:
     Player(int posX, int posY, Color color);
     Player(int posX, int posY, int width, int height, Color color);
 
-    void Draw();
+    void Draw() override;
 
 private:
-    const int posX;
-    const int posY;
-    const int width;
-    const int height;
-    const Color color;
+    int width;
+    int height;
 };
 
 #endif

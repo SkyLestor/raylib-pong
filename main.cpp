@@ -8,10 +8,12 @@ constexpr int SCREEN_WIDTH = 1280;
 constexpr int SCREEN_HEIGHT = 800;
 const char* GAME_TITLE = "Pong";
 
+Color backgroundColor = BLACK;
+
 float ballRadius = 10;
 Color ballColor{255, 255, 255, 255};
-
-
+Color lineColor{255, 255, 255, 70};
+float lineOffset = 5;
 
 
 int main () {
@@ -23,18 +25,25 @@ int main () {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, GAME_TITLE);
 
     SetTargetFPS(60);
+    
 
     while(!WindowShouldClose()) {
+        
         BeginDrawing();
         
+        ClearBackground(backgroundColor);
+
         DrawCircle(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, ballRadius, ballColor);
         
         playerLeft.Draw();
         playerRight.Draw();
+ 
+        DrawLine(SCREEN_WIDTH/2, lineOffset, SCREEN_WIDTH/2, SCREEN_HEIGHT - lineOffset, lineColor);
+
 
         EndDrawing();
     }
-
+    
     CloseWindow();
 
 }
