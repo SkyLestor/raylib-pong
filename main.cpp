@@ -24,7 +24,7 @@ int main () {
 
     SetTargetFPS(60);
 
-    while(WindowShouldClose() == false) {
+    while(!WindowShouldClose()) {
         BeginDrawing();
         
         DrawCircle(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, ballRadius, ballColor);
