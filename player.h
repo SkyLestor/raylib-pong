@@ -20,6 +20,11 @@ public:
     void Draw() override;
     void Update();
 
+    float GetPosX();
+    float GetPosY();
+    float GetHeight();
+    float GetWidth();
+
 private:
     int width;
     int height;

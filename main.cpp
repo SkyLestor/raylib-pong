@@ -48,6 +48,10 @@ int main () {
         ball.Update();
         playerLeft.Update();
         playerRight.Update(ball);
+        
+        ball.HandlePlayerCollisions(playerLeft);
+        ball.HandlePlayerCollisions(playerRight);
+
         centralLine.Draw();
 
 

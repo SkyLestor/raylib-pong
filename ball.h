@@ -5,6 +5,7 @@
 #include <vector>
 #include <iostream>
 #include "GameObject.h"
+#include "player.h"
 
 using namespace std;
 
@@ -21,9 +22,11 @@ public:
 
     float speedX;
     float speedY;
-
+    void HandlePlayerCollisions(Player player);
 private:
     float radius;
+
+   
 
 };
 

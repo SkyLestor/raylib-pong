@@ -27,3 +27,20 @@ void Player::Update()
         posY += speed;
     }
 }
+
+float Player::GetPosX()
+{
+    return posX;
+}
+float Player::GetPosY()
+{
+    return posY;
+}
+float Player::GetWidth()
+{
+    return width;
+}
+float Player::GetHeight()
+{
+    return height;
+}

@@ -34,3 +34,11 @@ int Ball::GetPosY()
 {
     return posY;
 }
+
+void Ball::HandlePlayerCollisions(Player player)
+{
+    if (CheckCollisionCircleRec(Vector2{posX, posY}, radius, Rectangle{player.GetPosX(), player.GetPosY(), player.GetWidth(), player.GetHeight()}))
+    {
+        speedX *= -1;
+    }
+}
