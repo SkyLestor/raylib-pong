@@ -18,10 +18,12 @@ public:
     Player(int posX, int posY, int width, int height, Color color);
 
     void Draw() override;
+    void Update();
 
 private:
     int width;
     int height;
+    float speed = 7;
 };
 
 #endif

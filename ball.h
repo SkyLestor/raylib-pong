@@ -16,6 +16,9 @@ public:
     void Draw() override;
     void Update();
 
+    int GetPosY();
+    int GetPosX();
+
     float speedX;
     float speedY;
 

@@ -15,7 +15,6 @@ void Ball::Update()
     posX += speedX;
     posY += speedY;
 
-
     if ((posY + radius) >= GetScreenHeight() || (posY - radius) <= 0)
     {
         speedY *= -1;
@@ -24,7 +23,14 @@ void Ball::Update()
     {
         speedX *= -1;
     }
-    
+}
 
+int Ball::GetPosX()
+{
+    return posX;
+}
 
+int Ball::GetPosY()
+{
+    return posY;
 }

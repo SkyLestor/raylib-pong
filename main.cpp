@@ -1,6 +1,7 @@
 #include <iostream>
 #include <raylib.h>
 #include "player.h"
+#include "AI.h"
 #include "line.h"
 #include "ball.h"
 #include "random.h"
@@ -25,7 +26,7 @@ float speed = 15;
 int main () {
 
     Player playerLeft = Player(Player::POS_X_DEFAULT, (SCREEN_HEIGHT - Player::HEIGHT_DEFAULT) / 2);
-    Player playerRight = Player((SCREEN_WIDTH - Player::POS_X_DEFAULT - Player::WIDTH_DEFAULT), (SCREEN_HEIGHT - Player::HEIGHT_DEFAULT) / 2);
+    AI playerRight = AI((SCREEN_WIDTH - Player::POS_X_DEFAULT - Player::WIDTH_DEFAULT), (SCREEN_HEIGHT - Player::HEIGHT_DEFAULT) / 2);
     Line centralLine = Line(SCREEN_WIDTH/2, lineOffset, SCREEN_WIDTH/2, SCREEN_HEIGHT - lineOffset, lineColor);
     Ball ball = Ball(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, ballRadius, ballColor, GetRandomVector(2, speed));
 
@@ -45,8 +46,8 @@ int main () {
         playerLeft.Draw();
         playerRight.Draw();
         ball.Update();
-
-        
+        playerLeft.Update();
+        playerRight.Update(ball);
         centralLine.Draw();
 
 
