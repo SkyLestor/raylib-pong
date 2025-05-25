@@ -3,6 +3,7 @@
 #include "player.h"
 #include "line.h"
 #include "ball.h"
+#include "random.h"
 
 using namespace std;
 
@@ -17,6 +18,7 @@ Color ballColor{255, 255, 255, 255};
 Color lineColor{255, 255, 255, 70};
 float lineOffset = 5;
 
+float speed = 15;
 
 
 
@@ -25,7 +27,7 @@ int main () {
     Player playerLeft = Player(Player::POS_X_DEFAULT, (SCREEN_HEIGHT - Player::HEIGHT_DEFAULT) / 2);
     Player playerRight = Player((SCREEN_WIDTH - Player::POS_X_DEFAULT - Player::WIDTH_DEFAULT), (SCREEN_HEIGHT - Player::HEIGHT_DEFAULT) / 2);
     Line centralLine = Line(SCREEN_WIDTH/2, lineOffset, SCREEN_WIDTH/2, SCREEN_HEIGHT - lineOffset, lineColor);
-    Ball ball = Ball(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, ballRadius, ballColor);
+    Ball ball = Ball(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, ballRadius, ballColor, GetRandomVector(2, speed));
 
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, GAME_TITLE);
 
@@ -42,7 +44,9 @@ int main () {
         
         playerLeft.Draw();
         playerRight.Draw();
- 
+        ball.Update();
+
+        
         centralLine.Draw();
 
 
