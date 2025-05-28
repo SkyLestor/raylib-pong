@@ -4,7 +4,8 @@
 #include <raylib.h>
 #include "GameObject.h"
 
-class Player : public GameObject {
+class Player : public GameObject
+{
 public:
     static constexpr int POS_X_DEFAULT = 10;
     static constexpr int POS_Y_DEFAULT = 0;
@@ -24,7 +25,11 @@ public:
     float GetPosY();
     float GetHeight();
     float GetWidth();
-
+    int GetScore();
+    void operator++(int);
+protected:
+    int score = 0;
+    
 private:
     int width;
     int height;

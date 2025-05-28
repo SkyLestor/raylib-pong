@@ -45,7 +45,7 @@ int main () {
         
         playerLeft.Draw();
         playerRight.Draw();
-        ball.Update();
+        ball.Update(playerLeft, playerRight);
         playerLeft.Update();
         playerRight.Update(ball);
         
@@ -54,7 +54,9 @@ int main () {
 
         centralLine.Draw();
 
-
+        DrawText((TextFormat("%i", playerLeft.GetScore())), SCREEN_WIDTH * 0.25 - 20, 20, 80, WHITE);
+        DrawText((TextFormat("%i", playerRight.GetScore())), SCREEN_WIDTH * 0.75 - 20, 20, 80, WHITE);
+        
         EndDrawing();
     }
     

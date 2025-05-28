@@ -15,13 +15,14 @@ public:
     Ball(int posX, int posY, float radius, Color color, vector<float> speed);
 
     void Draw() override;
-    void Update();
+    void Update(Player& leftPlayer, Player& rightPlayer);
 
     int GetPosY();
     int GetPosX();
 
     float speedX;
     float speedY;
+
     void HandlePlayerCollisions(Player player);
 private:
     float radius;

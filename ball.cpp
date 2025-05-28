@@ -1,5 +1,6 @@
 #include "ball.h"
 
+
 Ball::Ball(int posX, int posY, float radius, Color color, vector<float> speed)
     : GameObject(posX, posY, color), radius(radius), speedX(speed[0]), speedY(speed[1])
 {
@@ -10,7 +11,7 @@ void Ball::Draw()
     DrawCircle(posX, posY, radius, color);
 }
 
-void Ball::Update()
+void Ball::Update(Player& leftPlayer, Player& rightPlayer)
 {
     posX += speedX;
     posY += speedY;
@@ -19,8 +20,14 @@ void Ball::Update()
     {
         speedY *= -1;
     }
-    else if ((posX + radius) >= GetScreenWidth() || (posX - radius) <= 0)
+    else if ((posX + radius) >= GetScreenWidth())
     {
+        leftPlayer++;
+        speedX *= -1;
+    }
+    else if ((posX - radius) <= 0)
+    {
+        rightPlayer++;
         speedX *= -1;
     }
 }

@@ -44,3 +44,13 @@ float Player::GetHeight()
 {
     return height;
 }
+
+int Player::GetScore()
+{
+    return score;
+}
+
+void Player::operator++(int)
+{
+    score++;
+}
