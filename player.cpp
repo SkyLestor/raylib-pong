@@ -14,7 +14,7 @@ Player::Player(int posX, int posY, int width, int height, Color color)
 
 void Player::Draw()
 {
-    DrawRectangle(posX, posY, width, height, color);
+    DrawRectangleRounded({posX, posY, (float)width, (float)height}, 60, 0, color);
 }
 void Player::Update()
 {
