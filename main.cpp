@@ -12,7 +12,8 @@ constexpr int SCREEN_WIDTH = 1280;
 constexpr int SCREEN_HEIGHT = 800;
 const char* GAME_TITLE = "Pong";
 
-Color backgroundColor = BLACK;
+Color backgroundColor = GREEN;
+Color playerHalfColor = DARKGREEN;
 
 float ballRadius = 10;
 Color ballColor{255, 255, 255, 255};
@@ -40,6 +41,10 @@ int main () {
         BeginDrawing();
         
         ClearBackground(backgroundColor);
+        // Draw another color over player's half
+        DrawRectangle(0, 0, SCREEN_WIDTH/2, SCREEN_HEIGHT, playerHalfColor);
+
+        DrawCircleLines(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, 100, WHITE);
 
         ball.Draw();
         
