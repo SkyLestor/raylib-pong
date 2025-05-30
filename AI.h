@@ -23,7 +23,7 @@ public:
 private:
     int width;
     int height;
-    float speed = 7;
+    float speed = 10;
 };
 
 #endif
